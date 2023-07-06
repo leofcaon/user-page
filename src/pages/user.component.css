@@ -1,0 +1,48 @@
+.rectangle-title {
+  height: 100px;
+  background-color: rgba(196, 196, 234, 0.3)
+}
+
+.custom-search {
+  display: grid;
+  justify-content: end;
+  margin-right: 125px;
+}
+
+
+.custom-pr {
+  padding-right: 250px;
+}
+
+.custom-ml {
+  margin-left: 125px;
+}
+
+.custom-mr-paginator {
+  margin-right: 105px;
+}
+
+.text-center {
+  display: flex;
+  justify-content: center;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.red-icon {
+  color: rgb(200, 0, 0, 0.75);
+}
+
+.blue-icon {
+  color: rgb(80, 80, 255, 0.75);
+}
+
+.yellow-icon {
+  color: rgba(255, 200, 0, 0.75);
+}
+
+.bold {
+  font-weight: bold;
+}

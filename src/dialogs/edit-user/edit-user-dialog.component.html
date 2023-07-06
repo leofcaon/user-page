@@ -1,0 +1,15 @@
+<h2 *ngIf="editMode" mat-dialog-title>Update User</h2>
+<h2 *ngIf="!editMode" mat-dialog-title>View User</h2>
+<div mat-dialog-content>
+  <mat-form-field>
+    <input matInput placeholder="Email" [readonly]="!editMode" [(ngModel)]="updatedEmail">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Username" [readonly]="!editMode" [(ngModel)]="updatedUsername">
+  </mat-form-field>
+</div>
+<div>
+  <button mat-button *ngIf="editMode" mat-dialog-close>Cancel</button>
+  <button mat-button class="fl-r" *ngIf="editMode" (click)="onSave()">Save</button>
+  <button mat-button *ngIf="!editMode" mat-dialog-close>Close</button>
+</div>

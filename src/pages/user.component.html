@@ -1,0 +1,58 @@
+<div class="mat-elevation-z4">
+  <div class="rectangle-title text-center">
+    <h1>Users</h1>
+  </div>
+  <br/>
+  <button class="custom-ml" mat-raised-button (click)="openAddUserDialog()" color="primary">
+    Add New User
+  </button>
+  <mat-form-field class="custom-search">
+    <input matInput placeholder="Search"
+           [(ngModel)]="search" name="search" (ngModelChange)="searchFilter()">
+  </mat-form-field>
+  <div class="text-center">
+    <table mat-table [dataSource]="dataSource" matSort (matSortChange)="announceSortChange($event)">
+      <ng-container matColumnDef="id">
+        <th mat-sort-header sortActionDescription="Sort by id" class="custom-pr bold" mat-header-cell *matHeaderCellDef>Id</th>
+        <td class="custom-pr" mat-cell *matCellDef="let row">{{row.id}}</td>
+      </ng-container>
+      <ng-container matColumnDef="email">
+        <th mat-sort-header sortActionDescription="Sort by email" class="custom-pr bold" mat-header-cell *matHeaderCellDef>Email</th>
+        <td class="custom-pr" mat-cell *matCellDef="let row">{{row.email}}</td>
+      </ng-container>
+      <ng-container matColumnDef="username">
+        <th mat-sort-header sortActionDescription="Sort by username" class="custom-pr bold" mat-header-cell *matHeaderCellDef>Username</th>
+        <td class="custom-pr" mat-cell *matCellDef="let row">{{row.username}}</td>
+      </ng-container>
+      <ng-container matColumnDef="actions">
+        <th class="custom-pr bold" mat-header-cell *matHeaderCellDef>Actions</th>
+        <td class="custom-pr" mat-cell *matCellDef="let row">
+          <i class="material-icons blue-icon clickable" Tooltip="View" (click)="openViewUserDialog(row)">
+            visibility
+          </i>
+          <i class="material-icons yellow-icon clickable" Tooltip="Edit" (click)="openUpdateUserDialog(row)">
+            edit
+          </i>
+          <i class="material-icons red-icon clickable" Tooltip="Delete" (click)="openDeleteUserDialog(row)">
+            delete
+          </i>
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+  <br/>
+  <mat-paginator #paginator
+                 class="custom-mr-paginator"
+                 (page)="handlePageEvent($event)"
+                 [length]="length"
+                 [pageSize]="pageSize"
+                 [disabled]="disabled"
+                 [showFirstLastButtons]="showFirstLastButtons"
+                 [pageSizeOptions]="showPageSizeOptions ? pageSizeOptions : []"
+                 [hidePageSize]="hidePageSize"
+                 [pageIndex]="pageIndex"
+                 aria-label="Select page">
+  </mat-paginator>
+</div>
